@@ -1,0 +1,115 @@
+{% extends 'base.html' %}
+{% block head %}
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/category.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/x-icon" href="https://images.forestessentialsindia.com/pub/media/favicon/stores/2/favicon.png">
+    <title>
+        {% block title %}{% endblock %}
+    </title>
+</head>
+{% endblock head %}
+
+{% block content %}
+<div class="category_view">
+    <div class="category_image" id="body-care_image_height">
+        <div class="category_name">
+            <h1>Body CARE</h1>
+        </div>
+    </div>
+    <div class="category_sort">
+        <div>
+            <button id="filter_block_open" class="filter_button" onclick="show()">Filter</button>
+            <button id="sort_by_open" class="filter_button" onclick="sort_by_price()">
+                <select name="" id="select_option_to_sort">
+                    <option value="noeffect">sort By</option>
+                    <option value="low">PRICE (LOWEST FIRST)</option>
+                    <option value="high">PRICE (HIGHEST FIRST)</option>
+                </select>
+            </button>
+        </div>
+    </div>
+    <div class="filter_block">
+        <div>
+            <ul>
+                <li><h4>CONCERN</h4></li>
+                <li><input type="checkbox">DRYNESS </li>
+                <li><input type="checkbox">DULLNESS </li>
+                <li><input type="checkbox">OILINESS </li>
+                <li><input type="checkbox">TAN REMOVAL </li>
+                <li><input type="checkbox">PERSPIRATION </li>
+                <li><input type="checkbox">STRETCHMARKS </li>
+                <li><input type="checkbox">LOSS OF ELASTICITY </li>
+                <li><input type="checkbox">PIGMENTATION OR BLEMISHES </li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li><h4>HAIR TYPE</h4></li>
+                <li><input type="checkbox">CURLY </li>
+                <li><input type="checkbox">WAVY </li>
+                <li><input type="checkbox">STRAIGHT </li>
+                <li><input type="checkbox">OILY SCALP </li>
+                <li><input type="checkbox">DRY SCALP </li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li><h4>SKIN TYPE</h4></li>
+                <li><input type="checkbox">DRY</li>
+                <li><input type="checkbox">NORMAL </li>
+                <li><input type="checkbox">COMBINATION/OILY</li>
+            </ul>
+        </div>
+        <div>
+            <ul>
+                <li><h4>PRICE</h4></li>
+                <li><input type="checkbox">₹0.00 - ₹999.99</li>
+                <li><input type="checkbox">₹1,000.00 - ₹1,999.99</li>
+                <li><input type="checkbox">₹2,000.00 - ₹2,999.99</li>
+                <li><input type="checkbox">₹3,000.00 - ₹3,999.99</li>
+                <li><input type="checkbox">₹4,000.00 AND ABOVE</li>
+            </ul>
+        </div>
+    </div>
+    <div class="category_tag">
+            <span><a href="">HOME </a><span>
+            <span>> BODY CARE<span>
+    </div>
+</div>
+<div id="body_care_products">
+    {% if products %}
+        {% for product in products %}
+            <div>
+                <span class="icon-wishlist">
+                    <i class='fa fa-heart-o'></i>
+                    <img src = {{product.image}}>
+                </span>
+                <div>
+                    <p>{{product.name}}</p>
+                </div>
+                <div class="price">
+                    <span>{{product.weight}}</span>
+                </div>
+                <div class="price">
+                    <span>{{product.price}}</span>
+                </div>
+                <button>ADD TO BAG</button>
+            </div>
+        {% endfor %}
+    {% endif %}
+</div>
+{% endblock content %}
+    
+{% block script %}
+<script src="{% static 'js/header.js' %}"></script>
+
+{% endblock script %}
+  
+
+
