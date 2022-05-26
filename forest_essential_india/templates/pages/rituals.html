@@ -1,5 +1,9 @@
 {% extends 'basecategory.html' %}
 {% block title %}Rituals by Forest Essentials{% endblock %}
+{% block bg_image_id %}rituals_image_height{% endblock bg_image_id %}
+{% block page_heading %}Rituals by Forest Essentials{% endblock page_heading %}
+{% block page_category_name %}Rituals{% endblock page_category_name %}
+
 {% block products %}
 {% if products %}
         {% for product in products %}
@@ -22,6 +26,8 @@
         {% endfor %}
     {% endif %}
 {% endblock %}
+
+
 
 
 

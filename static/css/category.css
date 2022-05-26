@@ -14,14 +14,18 @@ body{
     align-items: center;
     justify-content: center;
     color: white;
+    height: 400px;
 }
 #body-care_image_height{
-    height: 335px;
     background-image: url(https://images.forestessentialsindia.com/pub/media/catalog/category/2_Body_Care_MG_7103_final_2880x640-min-min.jpg);
 }
 #collectionS_image_height{
-    height: 400px;
+    /* height: 400px; */
     background-image: url(https://images.forestessentialsindia.com/pub/media/catalog/category/6_Collections_2880-x-840-Domestic.jpg);
+}
+#rituals_image_height{
+    /* height: 400px; */
+    background-image: url(https://images.forestessentialsindia.com/pub/media/catalog/category/RitualsDesktopResized.jpg);
 }
 .category_name{
     background-color: rgba(0,0,0,0.5);

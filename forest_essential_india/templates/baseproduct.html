@@ -1,12 +1,8 @@
-{% extends 'basecategory.html' %}
-{% block title %}Our Body Care Products{% endblock %}
-{% block bg_image_id %}body-care_image_height{% endblock bg_image_id %}
-{% block page_heading %}Body CARE{% endblock page_heading %}
-{% block page_category_name %}Body Care{% endblock page_category_name %}
+{% block categoty %}
+{% endblock categoty %}
 
-{% block products %}
-    {% if products %}
-        {% for product in products %}
+    {% if {% block products_obj %}{% endblock products_obj %} %}
+        {% for product in {% block products_obj %}{% endblock products_obj %} %}
             <a href="{% url 'product' product.id %}">
                 <div>
                     <span class="icon-wishlist">
