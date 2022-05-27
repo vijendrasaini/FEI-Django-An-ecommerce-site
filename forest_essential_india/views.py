@@ -41,6 +41,11 @@ def cart(request):
 def paymentgateway(request):
     return render(request, "pages/paymentgateway.html", {})
     
-def product(request):
-    return render(request, "pages/productDetails.html", {})
+def product(request, id):
+    result = Product.objects.get(pk=id)
+    return render(request, "pages/productDetails.html", {'product' : result})
+
+def addtowishlist(request, id):
+    result = Product.objects.get(pk=id)
+    return render(request, "pages/productDetails.html", {'product' : result})
 

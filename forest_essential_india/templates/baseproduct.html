@@ -27,4 +27,27 @@
 
 
 
+{% if products %}
+        {% for product in products %}
+            <div>
+                <span class="icon-wishlist">
+                    <i class='fa fa-heart-o'></i>
+                    <img src = {{product.image}}>
+                </span>
+                <div>
+                    <p>{{product.name}}</p>
+                </div>
+                <div class="price">
+                    <span>{{product.weight}}</span>
+                </div>
+                <div class="price">
+                    <span>{{product.price}}</span>
+                </div>
+                <button>ADD TO BAG</button>
+            </div>
+        {% endfor %}
+    {% endif %}
+
+
+
 

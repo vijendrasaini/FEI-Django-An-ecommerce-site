@@ -4,13 +4,13 @@
 {% block page_heading %}Rituals by Forest Essentials{% endblock page_heading %}
 {% block page_category_name %}Rituals{% endblock page_category_name %}
 
-{% block products %}
-{% if products %}
+{% block cat_products%}
+    {% if products %}
         {% for product in products %}
             <div>
                 <span class="icon-wishlist">
                     <i class='fa fa-heart-o'></i>
-                    <img src = {{product.image}}>
+                    <a href="{% url 'product' product.id %}" ><img src = {{product.image}}></a>
                 </span>
                 <div>
                     <p>{{product.name}}</p>
@@ -25,12 +25,4 @@
             </div>
         {% endfor %}
     {% endif %}
-{% endblock %}
-
-
-
-
-
-
-
-
+{% endblock cat_products%}
