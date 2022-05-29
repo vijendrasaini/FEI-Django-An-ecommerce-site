@@ -9,6 +9,32 @@
         url(https://example.com/MaterialIcons-Regular.woff) format('woff'),
         url(https://example.com/MaterialIcons-Regular.ttf) format('truetype');
 }
+.fei-signup-table {
+    width: 100%;
+    margin: auto;
+}
+
+.fei-signup-table label {
+    font-size: 16px;
+}
+
+.fei-signup-table input {
+    width: 560px;
+    padding: 5px;
+    font-size: 16px;
+}
+
+.signup-button-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.signup-button-container input {
+    font-size: 17px;
+    padding: 6px 40px;
+    font-weight: bold;
+}
 .material-icons{
     font-family: 'Material Icons';
     font-weight: normal;

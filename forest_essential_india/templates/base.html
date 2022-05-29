@@ -4,10 +4,74 @@
 
 {% block head %}
 {% endblock head %}
+<style>
+    .fei-user-profile-logout a {
+        text-decoration: none;
+    }
+
+    .fei-user-profile-logout {
+        background-color: aliceblue;
+        z-index: 2;
+    }
+
+    .fei-user-profile-logout ul {
+        background-color: aliceblue;
+        list-style: none;
+        margin: 0;
+        padding-left: 0;
+        z-index: 2;
+    }
+
+    .fei-user-profile-logout li {
+        /* color: #fff; */
+        color: black;
+        /* background: darkorange; */
+        display: block;
+        float: left;
+        padding: 1rem;
+        position: relative;
+        text-decoration: none;
+        transition-duration: 0.5s;
+    }
+
+    .fei-user-profile-logout li a {
+        /* color: #fff; */
+        color:  black;
+    }
+
+    .fei-user-profile-logout li:hover {
+        /* background: red; */
+        cursor: pointer;
+    }
+
+    .fei-user-profile-logout ul li ul {
+        /* background: orange; */
+        visibility: hidden;
+        opacity: 0;
+        min-width: 5rem;
+        position: absolute;
+        transition: all 0.5s ease;
+        margin-top: 1rem;
+        left: 0;
+        display: none;
+    }
+
+    .fei-user-profile-logout ul li:hover>ul,
+    ul li ul:hover {
+        visibility: visible;
+        opacity: 1;
+        display: block;
+    }
+
+    .fei-user-profile-logout ul li ul li {
+        clear: both;
+        width: 100%;
+    }
+</style>
 
 <body>
     <!--THE HEADER PART -->
-    <div class="main--Navbar">
+    <div class="main--Navbar fei-navbar">
         <!-- NOTIFY DIV -->
         <div class="ads">
             <div class="notify">COMPLIMENTARY SAMPLES ON EVERY PURCHASE!</div>
@@ -46,10 +110,22 @@
                 </div>
                 <div class="submenu--right">
                     <div class="nav-icon mg-medium">
-                        <a href="/signup">
-                            <span>account</span>
-                            <i class="fa fa-user-circle-o"></i>
-                        </a>
+                        {% if is_authenticated %}
+                            <div class="fei-user-profile-logout">
+                                <ul>
+                                    <li>
+                                        <a href="#">Hello <span style="color: rgb(168, 93, 47); font-weight: bolder;">{{user_first_name}} !</span></a>
+                                        <ul class="dropdown">
+                                            <li><a href="#">Profile</a></li>
+                                            <li><a href="{% url 'user_logout' %}">Logout</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        {% else %}
+                        <a href="{% url 'signin' %}"><span>Login</span></a>
+                        {% endif %}
+                        <!-- <i class="fa fa-user-circle-o"></i> -->
                     </div>
                     <div class="nav-icon mg-medium">
                         <a href="/wishlist">
@@ -62,7 +138,7 @@
 
                             <div class="cart">
                                 <img src="{% static 'img/cart-icon.png' %}">
-                                <span id="cart__Count">0</span>
+                                <span id="cart__Count">{{cart_item_count}}</span>
                             </div>
                         </a>
                     </div>
@@ -103,7 +179,7 @@
                         <a href="/discover" class="nav-link">discover</a>
                     </li>
                 </ul>
-                
+
                 <!--ONLY SHOWS IN MOBILE PHONE -->
                 <img class="cross--icon__res--hide"
                     src="https://cdn.forestessentialsindia.com/pub/static/frontend/Forest/Theme/en_US/images/cross-icon.svg"
@@ -244,6 +320,7 @@
     </div>
 
 </body>
+
 </html>
 <!--HEADER JS-->
 {% block script %}

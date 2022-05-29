@@ -1,262 +1,276 @@
 {% extends 'base.html' %}
 
 {% block head %}
-    <head>
-        {% load static %}
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="{% static 'css/header.css' %}">
-        <link rel="stylesheet" href="{% static 'css/Homepage.css' %}">
-        <link rel="stylesheet" href="{% static 'css/tranding.css' %}">
-        <link rel="stylesheet" href="{% static 'css/pure_fresh.css' %}">
-        <link rel="stylesheet" href="{% static 'css/landingpage.css' %}">
-        <link rel="icon" type="image/x-icon" href="https://images.forestessentialsindia.com/pub/media/favicon/stores/2/favicon.png">
-        <title>Luxury Ayurveda Beauty Store</title>
-    </head>
+
+<head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Homepage.css' %}">
+    <link rel="stylesheet" href="{% static 'css/tranding.css' %}">
+    <link rel="stylesheet" href="{% static 'css/pure_fresh.css' %}">
+    <link rel="stylesheet" href="{% static 'css/landingpage.css' %}">
+    <link rel="stylesheet" href="{% static 'css/popup.css' %}">
+    <link rel="icon" type="image/x-icon"
+        href="https://images.forestessentialsindia.com/pub/media/favicon/stores/2/favicon.png">
+    <title>Luxury Ayurveda Beauty Store</title>
+</head>
 {% endblock head %}
-    {% block content %}
-    <div class="slider_container">
-        <div class="img_slider">
-            <picture>
-                <source srcset="./img/img1_mobile.jpg" media="(max-width:540px)">
-                <img src="{% static 'img/slide1.jpg' %}" width="100%" height="100%">
-            </picture>
 
-        </div>
-        <div class="img_slider">
-            <picture>
-                <source srcset="./img/slide2_mobile.jpg" media="(max-width:540px)">
-                <img src="{% static 'img/slide2.jpg' %}" width="100%" height="100%">
-            </picture>
-        </div>
-        <div class="img_slider">
-            <picture>
-                <source srcset="./img/slide3_mobile.jpg" media="(max-width:540px)">
-                <img src="{% static 'img/slide3.jpg' %}" width="100%" height="100%">
-            </picture>
-        </div>
-        <div class="img_slider">
-            <picture>
-                <source srcset="./img/slide4_mobile.jpg" media="(max-width:540px)">
-                <img src="{% static 'img/slide4.jpg' %}" width="100%" height="100%">
-            </picture>
-        </div>
+{% block content %}
+{% if messages %}
+{% for message in messages%}
+<div id="remove-django-message-container" class="remove-django-message-container-{{message.tags}}">
+    <span> {{message}} </span>
+    <button onclick="remove_django_message()">X</button>
+</div>
+{% endfor %}
+{% endif %}
 
-        <a class="prev" onclick="plus(-1)">&#10094;</a>
-        <a class="next" onclick="plus(1)">&#10095;</a>
+<div class="slider_container">
+    <div class="img_slider">
+        <picture>
+            <source srcset="./img/img1_mobile.jpg" media="(max-width:540px)">
+            <img src="{% static 'img/slide1.jpg' %}" width="100%" height="100%">
+        </picture>
+
     </div>
-    <!--THE CONTENT VEDIO AND SOME PRODUCT SECTION-->
-    <div>
-        <div id="container">
-            <div class="text">
-                <p>If You Cannot Eat It, Do Not Use It On Your Skin</p>
-                <p>That is the Ayurvedic & Forest Essentials standard for pure, fresh and natural. We believe that
-                    beauty products made of living substances such as plants or their extracts, are balanced by nature
-                    and contain the vibratory energy that constitutes life. These contain all the purifying, nutritive
-                    and balancing properties necessary to nurture the skin and for eternal beauty. They are the perfect
-                    foods for the skin.</p>
-                <div class="images">
-                    <div class="img">
-                        <img src="https://images.forestessentialsindia.com/pub/media/cms_images/Purity-Guaranteed.png" /
-                            width="80%" height="70%">
-                    </div>
-                    <div class="img">
-                        <img src="https://images.forestessentialsindia.com/pub/media/cms_images/Ethically-Sourced.png" /
-                            width="75%" height="70%">
-                    </div>
-                    <div class="img">
-                        <img src="https://images.forestessentialsindia.com/pub/media/cms_images/100-Natural.png" /
-                            width="75%" height="70%">
-                    </div>
-                    <div class="img">
-                        <img src="https://images.forestessentialsindia.com/pub/media/cms_images/Authentically-Ayurvedic.png"
-                            / width="80%" height="70%">
-                    </div>
-                </div>
-                <button class="bestsellerbutton">Know More > </button>
-            </div>
+    <div class="img_slider">
+        <picture>
+            <source srcset="./img/slide2_mobile.jpg" media="(max-width:540px)">
+            <img src="{% static 'img/slide2.jpg' %}" width="100%" height="100%">
+        </picture>
+    </div>
+    <div class="img_slider">
+        <picture>
+            <source srcset="./img/slide3_mobile.jpg" media="(max-width:540px)">
+            <img src="{% static 'img/slide3.jpg' %}" width="100%" height="100%">
+        </picture>
+    </div>
+    <div class="img_slider">
+        <picture>
+            <source srcset="./img/slide4_mobile.jpg" media="(max-width:540px)">
+            <img src="{% static 'img/slide4.jpg' %}" width="100%" height="100%">
+        </picture>
+    </div>
 
-            <div class="video">
-                <iframe width="600" height="420" src="https://www.youtube.com/embed/oXSZklsMI_4"
-                    title="YouTube video player" frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen></iframe>
+    <a class="prev" onclick="plus(-1)">&#10094;</a>
+    <a class="next" onclick="plus(1)">&#10095;</a>
+</div>
+<div>
+    <div id="container">
+        <div class="text">
+            <p>If You Cannot Eat It, Do Not Use It On Your Skin</p>
+            <p>That is the Ayurvedic & Forest Essentials standard for pure, fresh and natural. We believe that
+                beauty products made of living substances such as plants or their extracts, are balanced by nature
+                and contain the vibratory energy that constitutes life. These contain all the purifying, nutritive
+                and balancing properties necessary to nurture the skin and for eternal beauty. They are the perfect
+                foods for the skin.</p>
+            <div class="images">
+                <div class="img">
+                    <img src="https://images.forestessentialsindia.com/pub/media/cms_images/Purity-Guaranteed.png" /
+                        width="80%" height="70%">
+                </div>
+                <div class="img">
+                    <img src="https://images.forestessentialsindia.com/pub/media/cms_images/Ethically-Sourced.png" /
+                        width="75%" height="70%">
+                </div>
+                <div class="img">
+                    <img src="https://images.forestessentialsindia.com/pub/media/cms_images/100-Natural.png" /
+                        width="75%" height="70%">
+                </div>
+                <div class="img">
+                    <img src="https://images.forestessentialsindia.com/pub/media/cms_images/Authentically-Ayurvedic.png"
+                        / width="80%" height="70%">
+                </div>
             </div>
+            <button class="bestsellerbutton">Know More > </button>
         </div>
-        <div id="bestseller">
-            <div class="bestsellertext">
-                <p>All Time Bestsellers</p>
-                <button class="bestsellerbutton">View All > </button>
-            </div>
-            <div id="selleritems">
-                <div>
-                    <img
-                        src="https://images.forestessentialsindia.com/pub/media/catalog/product/cache/314dec89b3219941707ad62ccc90e585/9/5/9572-png_option_1.png" />
-                    <p>BESTSELLER</p>
-                    <p>CHARCOAL BLACK GULAB KHAAS KAJAL</p>
-                    <P>0.30 g</P>
-                    <p>&#x20b9; 775.00</p>
-                    <button class="bagbutton">ADD TO BAG</button>
-                </div>
-                <div>
-                    <img
-                        src="https://images.forestessentialsindia.com/pub/media/catalog/product/cache/314dec89b3219941707ad62ccc90e585/8/8/8897_intensive_eye_cream_with_anise_15g_frontnew.png" />
-                    <p>BESTSELLER</p>
-                    <p>INTENSIVE EYE CREAM WITH ANISE 15g</p>
-                    <P>15 g</P>
-                    <p>&#x20b9; 2850.00</p>
-                    <button class="bagbutton">ADD TO BAG</button>
-                </div>
-                <div>
-                    <img
-                        src="https://images.forestessentialsindia.com/pub/media/catalog/product/cache/314dec89b3219941707ad62ccc90e585/8/8/8842_soundarya_radiance_cream_50g_front.png" />
-                    <p>BESTSELLER</p>
-                    <p>SOUNDARYA RADIANCE CREAM WITH 24K </p>
-                    <P>50 g</P>
-                    <p>&#x20b9; 5400.00</p>
-                    <button class="bagbutton">ADD TO BAG</button>
-                </div>
-                <div>
-                    <img
-                        src="https://images.forestessentialsindia.com/pub/media/catalog/product/cache/314dec89b3219941707ad62ccc90e585/8/8/8894_night_treatment_cream_sandalwood_saffron_50g_front.png" />
-                    <p>BESTSELLER</p>
-                    <p>NIGHT TREATMENT CREAM SANDELWOOD</p>
-                    <P>50 g</P>
-                    <p> &#x20b9; 2450.00 </p>
-                    <button class="bagbutton">ADD TO BAG</button>
-                </div>
-            </div>
+
+        <div class="video">
+            <iframe width="600" height="420" src="https://www.youtube.com/embed/oXSZklsMI_4"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
         </div>
     </div>
-    <!--CATAEGERY --><div id="body_cont_main">
-        <div id="container1">
-            <div id="cate">
-                <h1 id="our_category">Our Categories</h1>
-                <div id="our_cat">
-                    <div>
-                        <div class="backgrd_img1">
-                            <div class="img_text">
-                                <span class="backgrd_span_font">Facial Care</span>
-                            </div>
-                            <button class="cat-button">SHOP NOW </button>
-                        </div>
-                        <p class="cat_p">Curated with exceptional Ayurvedic ingredients to transform your skin.</p>
-                    </div>
-                    <div>
-                        <div class="backgrd_img2">
-                            <div class="img_text">
-                                <span class="backgrd_span_font">Body Care</span>
-                            </div>
-                            <button class="cat-button">SHOP NOW </button>
-                        </div>
-                        <p class="cat_p">Indulgent and immersive products hat leave your skin satin smooth.</p>
-                    </div>
-                    <div>
-                        <div class="backgrd_img3">
-                            <div class="img_text">
-                                <span class="backgrd_span_font">Hair Care</span>
-                            </div>
-                            <button class="cat-button">SHOP NOW</button>
-                        </div>
-                        <p class="cat_p">A transformative assortment of fortifying and toxin-free care for lush tresses.
-                        </p>
-                    </div>
-                    <div>
-                        <div class="backgrd_img4">
-                            <div class="img_text">
-                                <span class="backgrd_span_font">Makeup</span>
-                            </div>
-                            <button class="cat-button">SHOP NOW </button>
-                        </div>
-                        <p class="cat_p">Skin benefitting makeup infused with Ayurvedic herbs and potent botanicals</p>
-                    </div>
-                </div>
-            </div>
-            <div id="img">
-                <img src="https://images.forestessentialsindia.com/pub/media/cms_images/soundarya-banner_2880-840.jpg"
-                    id="img_iconic">
-            </div>
-            <div id="trend_sec">
-                <h1 id="trend_head">Trending Now</h1>
-                <div id="trend_content">
-                    <div>
-                        <div id="trend_bckgrd1">
-                            <button class="trend-button" style="margin-left: 25%;">Hair Loss</button>
-                        </div>
-                        <p class="trend_p">Targer hair loss and thinning with Ayurvedic elixirs to achieve lush and
-                            lustrous tresses.</p>
-                    </div>
-                    <div>
-                        <div id="trend_bckgrd2">
-                            <button class="trend-button" style="margin-left: 9%;">Mother & Baby Care</button>
-                        </div>
-                        <p class="trend_p">Wisdom of ancient rituals packed into specilized care for you and your baby.
-                            Made Safe Certified</p>
-                    </div>
-                    <div>
-                        <div id="trend_bckgrd3">
-                            <button class="trend-button" style="margin-left: 30%;">Dryness</button>
-                        </div>
-                        <p class="trend_p">Glaze your skin with intense nourishment for a satin-smooth and velvety soft
-                            touch.</p>
-                    </div>
-                    <div>
-                        <div id="trend_bckgrd4">
-                            <button class="trend-button" style="margin-left: 15%;">Acne-Prone Skin</button>
-                        </div>
-                        <p class="trend_p">Transformation treatments with dermo-purifying blends to clarify and soothe
-                            the skin</p>
-                    </div>
-                </div>
-            </div>
+    <div id="bestseller">
+        <div class="bestsellertext">
+            <p>All Time Bestsellers</p>
+            <button class="bestsellerbutton">View All > </button>
         </div>
-    </div><!--Pure Fresh -->
-    <div class="homepage_block_1">
-        <div class="box1">
-            <div class="heading letter-spacing">Pure Fresh Sensorial</div>
-            <p class="padd"><b>Every ingredient is sourced from a region where it is known to be of the most superior
-                    quality.</b></p>
-            <div><a href="link"><b>OUR INGREDIENTS -></b></a></div>
-        </div>
-        <div class="box2">
-            <div class="heading letter-spacing heading_2">Consciously Crafted</div>
-            <p class="padd"><b>We are relentless in our efforts to be conscientious about the environment and give back
-                    to the society.</b></p>
-            <div><a href="link"><b>OUR INITIATIVES -></b></a></div>
-        </div>
-        <div class="box3">
-            <div class="heading letter-spacing heading_3">Cult Formulas Proven Results</div>
-            <p class="padd"><b>We craft high-performance Ayurvedic products for skin and hair that promise results and
-                    purity.</b></p>
-            <div><a href="link"><b>OUR PRODUCTS -></b></a></div>
-        </div>
-    </div>
-    <div>
-        <div class="homepage_block_2">
-            <h1>A Unique Solution Crafted Specially For You.</h1>
+        <div id="selleritems">
             <div>
-                <div class="ayurvedic_interaction">
-                    <div class="img img1">
-                        <div class="h3_box">
-                            <h3>Live In-Depth Ayurvedic Interactions</h3>
+                <img
+                    src="https://images.forestessentialsindia.com/pub/media/catalog/product/cache/314dec89b3219941707ad62ccc90e585/9/5/9572-png_option_1.png" />
+                <p>BESTSELLER</p>
+                <p>CHARCOAL BLACK GULAB KHAAS KAJAL</p>
+                <P>0.30 g</P>
+                <p>&#x20b9; 775.00</p>
+                <button class="bagbutton">ADD TO BAG</button>
+            </div>
+            <div>
+                <img
+                    src="https://images.forestessentialsindia.com/pub/media/catalog/product/cache/314dec89b3219941707ad62ccc90e585/8/8/8897_intensive_eye_cream_with_anise_15g_frontnew.png" />
+                <p>BESTSELLER</p>
+                <p>INTENSIVE EYE CREAM WITH ANISE 15g</p>
+                <P>15 g</P>
+                <p>&#x20b9; 2850.00</p>
+                <button class="bagbutton">ADD TO BAG</button>
+            </div>
+            <div>
+                <img
+                    src="https://images.forestessentialsindia.com/pub/media/catalog/product/cache/314dec89b3219941707ad62ccc90e585/8/8/8842_soundarya_radiance_cream_50g_front.png" />
+                <p>BESTSELLER</p>
+                <p>SOUNDARYA RADIANCE CREAM WITH 24K </p>
+                <P>50 g</P>
+                <p>&#x20b9; 5400.00</p>
+                <button class="bagbutton">ADD TO BAG</button>
+            </div>
+            <div>
+                <img
+                    src="https://images.forestessentialsindia.com/pub/media/catalog/product/cache/314dec89b3219941707ad62ccc90e585/8/8/8894_night_treatment_cream_sandalwood_saffron_50g_front.png" />
+                <p>BESTSELLER</p>
+                <p>NIGHT TREATMENT CREAM SANDELWOOD</p>
+                <P>50 g</P>
+                <p> &#x20b9; 2450.00 </p>
+                <button class="bagbutton">ADD TO BAG</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="body_cont_main">
+    <div id="container1">
+        <div id="cate">
+            <h1 id="our_category">Our Categories</h1>
+            <div id="our_cat">
+                <div>
+                    <div class="backgrd_img1">
+                        <div class="img_text">
+                            <span class="backgrd_span_font">Facial Care</span>
                         </div>
+                        <button class="cat-button">SHOP NOW </button>
                     </div>
-                    <h3>speak to our certified doctors for personalised solutions to your concerns.</h3>
+                    <p class="cat_p">Curated with exceptional Ayurvedic ingredients to transform your skin.</p>
                 </div>
-                <div class="ayurvedic_interaction">
-                    <div class="img img2">
-                        <div class="h3_box">
-                            <h3>Customized Creams</h3>
+                <div>
+                    <div class="backgrd_img2">
+                        <div class="img_text">
+                            <span class="backgrd_span_font">Body Care</span>
                         </div>
+                        <button class="cat-button">SHOP NOW </button>
                     </div>
-                    <h3>Allow our experts to decode your skin concerns with a bespoke Ayurvedic cream..</h3>
+                    <p class="cat_p">Indulgent and immersive products hat leave your skin satin smooth.</p>
+                </div>
+                <div>
+                    <div class="backgrd_img3">
+                        <div class="img_text">
+                            <span class="backgrd_span_font">Hair Care</span>
+                        </div>
+                        <button class="cat-button">SHOP NOW</button>
+                    </div>
+                    <p class="cat_p">A transformative assortment of fortifying and toxin-free care for lush tresses.
+                    </p>
+                </div>
+                <div>
+                    <div class="backgrd_img4">
+                        <div class="img_text">
+                            <span class="backgrd_span_font">Makeup</span>
+                        </div>
+                        <button class="cat-button">SHOP NOW </button>
+                    </div>
+                    <p class="cat_p">Skin benefitting makeup infused with Ayurvedic herbs and potent botanicals</p>
+                </div>
+            </div>
+        </div>
+        <div id="img">
+            <img src="https://images.forestessentialsindia.com/pub/media/cms_images/soundarya-banner_2880-840.jpg"
+                id="img_iconic">
+        </div>
+        <div id="trend_sec">
+            <h1 id="trend_head">Trending Now</h1>
+            <div id="trend_content">
+                <div>
+                    <div id="trend_bckgrd1">
+                        <button class="trend-button" style="margin-left: 25%;">Hair Loss</button>
+                    </div>
+                    <p class="trend_p">Targer hair loss and thinning with Ayurvedic elixirs to achieve lush and
+                        lustrous tresses.</p>
+                </div>
+                <div>
+                    <div id="trend_bckgrd2">
+                        <button class="trend-button" style="margin-left: 9%;">Mother & Baby Care</button>
+                    </div>
+                    <p class="trend_p">Wisdom of ancient rituals packed into specilized care for you and your baby.
+                        Made Safe Certified</p>
+                </div>
+                <div>
+                    <div id="trend_bckgrd3">
+                        <button class="trend-button" style="margin-left: 30%;">Dryness</button>
+                    </div>
+                    <p class="trend_p">Glaze your skin with intense nourishment for a satin-smooth and velvety soft
+                        touch.</p>
+                </div>
+                <div>
+                    <div id="trend_bckgrd4">
+                        <button class="trend-button" style="margin-left: 15%;">Acne-Prone Skin</button>
+                    </div>
+                    <p class="trend_p">Transformation treatments with dermo-purifying blends to clarify and soothe
+                        the skin</p>
                 </div>
             </div>
         </div>
     </div>
-    {% endblock content %}
+</div>
+<!--Pure Fresh -->
+<div class="homepage_block_1">
+    <div class="box1">
+        <div class="heading letter-spacing">Pure Fresh Sensorial</div>
+        <p class="padd"><b>Every ingredient is sourced from a region where it is known to be of the most superior
+                quality.</b></p>
+        <div><a href="link"><b>OUR INGREDIENTS -></b></a></div>
+    </div>
+    <div class="box2">
+        <div class="heading letter-spacing heading_2">Consciously Crafted</div>
+        <p class="padd"><b>We are relentless in our efforts to be conscientious about the environment and give back
+                to the society.</b></p>
+        <div><a href="link"><b>OUR INITIATIVES -></b></a></div>
+    </div>
+    <div class="box3">
+        <div class="heading letter-spacing heading_3">Cult Formulas Proven Results</div>
+        <p class="padd"><b>We craft high-performance Ayurvedic products for skin and hair that promise results and
+                purity.</b></p>
+        <div><a href="link"><b>OUR PRODUCTS -></b></a></div>
+    </div>
+</div>
+<div>
+    <div class="homepage_block_2">
+        <h1>A Unique Solution Crafted Specially For You.</h1>
+        <div>
+            <div class="ayurvedic_interaction">
+                <div class="img img1">
+                    <div class="h3_box">
+                        <h3>Live In-Depth Ayurvedic Interactions</h3>
+                    </div>
+                </div>
+                <h3>speak to our certified doctors for personalised solutions to your concerns.</h3>
+            </div>
+            <div class="ayurvedic_interaction">
+                <div class="img img2">
+                    <div class="h3_box">
+                        <h3>Customized Creams</h3>
+                    </div>
+                </div>
+                <h3>Allow our experts to decode your skin concerns with a bespoke Ayurvedic cream..</h3>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
 {% block script %}
 <script src="{% static 'js/header.js' %}"></script>
 <script src="{% static 'js/index.js' %}"></script>
+<script src="{% static 'js/popup.js' %}"></script>
 {% endblock script %}

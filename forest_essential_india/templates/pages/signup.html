@@ -5,127 +5,36 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
-
-      <link rel="stylesheet" href="{% static 'css/header.css' %}">
-    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="icon" type="image/x-icon" href="https://images.forestessentialsindia.com/pub/media/favicon/stores/2/favicon.png">
+	<link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+	<link rel="stylesheet" href="{% static 'css/popup.css' %}">
     <title>Create An Account</title>
 </head>
 {% endblock head %}
 
 {% block content %}
 <div id="main_signup_div">
-	<!-- SIGN UP CONTENT START  -->
 	<h2>Create An Account</h2>
-	<div>
-		<h5 style="color: rgb(87, 86, 86);">PERSONAL INFORMATION</h5>
-		<hr>
-		<!-- SIGN UP FORM IN TABLE FORM  -->
-		<table>
-			<tbody>
-				<tr>
-					<td class="signup_form_label">TITLE*</td>
-				</tr>
-				<tr>
-					<td>
-						<select id="signup_pleaseselect">
-							<option value="">PLEASE SELECT</option>
-							<option value="mr">Mr.</option>
-							<option value="ms">Ms.</option>
-							<option value="mrs">Mrs.</option>
-						</select>
-					</td>
-				</tr>
-			</tbody>
+	<form action="" method="POST" novalidate>
+		{% csrf_token%}
+		<table class="fei-signup-table" >
+			{% for field in form %}
+			<tr>
+				<td>{{field.label_tag}}</td>
+				<td>{{field}}</td>
+				<td>{{field.errors}}</td>
+			</tr>
+			{% endfor %}
 		</table>
-		<div class="signup_form_table_div">
-			<table>
-				<tbody>
-					<tr>
-						<td class="signup_form_label">FIRST NAME*</td>
-					</tr>
-					<tr>
-						<td><input type="text" id="firstname"></td>
-					</tr>
-				</tbody>
-			</table>
-			<table>
-				<tbody>
-					<tr>
-						<td class="signup_form_label">LAST NAME*</td>
-					</tr>
-					<tr>
-						<td><input type="text" id="lastname"></td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-		<div class="signup_form_table_div">
-			<table>
-				<tbody>
-					<tr>
-						<td class="signup_form_label">EMAIL ADDRESS*</td>
-					</tr>
-					<tr>
-						<td><input type="email" id="customeremail"></td>
-					</tr>
-				</tbody>
-			</table>
-			<table>
-				<tbody>
-					<tr>
-						<td class="signup_form_label">PHONE NUMBER *</td>
-					</tr>
-					<tr>
-						<td><input type="number" id="customerphnnum"></td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-
-
-		<!-- PASSWORD SECTION  -->
-		<h5>SECURITY</h5>
-		<hr>
-		<div class="signup_form_table_div">
-			<table>
-				<tbody>
-					<tr>
-						<td class="signup_form_label">CREATE PASSWORD*</td>
-					</tr>
-					<tr>
-						<td><input type="password" id="password"></td>
-					</tr>
-				</tbody>
-			</table>
-		
-			<table>
-				<tbody>
-					<tr>
-						<td class="signup_form_label">CONFIRM PASSWORD*</td>
-					</tr>
-					<tr>
-						<td><input type="text" id="confirmpassword"></td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-
-		<!-- BELOW SIGN UP FORM  -->
-		<input type="checkbox"><label class="signup_form_label">SIGN UP TO OUR NEWSLETTER</label>
-		<br>
-		<h6 style="color: rgb(207, 6, 6);">*Required Fields</h6><br/>
-		<a href="/signin" style="font-size: large; font-weight: bold; color: black;">SIGN IN</a>
-		<br>
-
-		<!-- SIGN UP BUTTON  -->
-		<button id="signup_button">CREATE AN ACCOUNT</button>
-	</div>
+		<div class="signup-button-container"><input type="submit" value="submit"></div>
+	</form>
 </div>
 {% endblock content %}
     
 {% block script %}
+{% load static%}
 <script src="{% static 'js/signup.js' %}"></script>
+<script src="{% static 'js/popup.js' %}"></script>
 {% endblock script %}

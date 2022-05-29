@@ -7,6 +7,7 @@ body {
     overflow-x: hidden;
 }
 
+
 .category_image {
     background-size: cover;
     background-repeat: no-repeat;
@@ -154,7 +155,7 @@ body {
     padding: 20px;
 }
 
-#body_care_products button {
+/* #body_care_products button {
     padding: 15px 30px;
     width: 100%;
     margin-bottom: 20px;
@@ -163,6 +164,19 @@ body {
     font-size: 14px;
     font-family: calibri;
     letter-spacing: 2.8px;
+} */
+#body_care_products #fei_add_to_cart_btn {
+    padding: 15px 30px;
+    width: 100%;
+    margin-bottom: 20px;
+    color: black;
+    border: 1px solid black;
+    font-size: 14px;
+    font-family: calibri;
+    letter-spacing: 2.8px;
+}
+#body_care_products #fei_add_to_cart_btn a{
+    color: red;
 }
 
 #body_care_products div>p {
