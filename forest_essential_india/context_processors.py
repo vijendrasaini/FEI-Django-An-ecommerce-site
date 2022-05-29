@@ -13,6 +13,7 @@ def user_first_name(request):
     except:
         return { 'user_first_name' : "NA"}
 
+
 def cart_item_count(request):
     c = 0
     if request.user.is_authenticated:

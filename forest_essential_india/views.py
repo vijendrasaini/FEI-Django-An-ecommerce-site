@@ -78,7 +78,6 @@ def wishlist(request):
     return render(request, "pages/wishlist.html", {})
 
 def cart(request):
-    print("HI at cart")
     try:
         if request.user.is_authenticated:
             cart_list = Cart.objects.all().filter(user_id=request.user.id)
@@ -116,16 +115,13 @@ def add_to_cart(request, id):
             user_id = request.user.id
             cart_items = Cart.objects.all()
             flag = 1
-            print(product_id, user_id)
             for cart_item in cart_items:
                 if cart_item.product_id == int(id) and cart_item.user_id == int(user_id):
                     cart_item.product_qty = cart_item.product_qty + 1
                     cart_item.save()
-                    print('inside loop and matched')
                     flag = 0
                     break
             if flag == 1:
-                print("not foutn fitst product is cart")
                 added_product = Cart(user_id=user_id, product_id=product_id)
                 added_product.save()  
             messages.success(request, 'Product is added into your cart successfully.')
@@ -151,13 +147,8 @@ def qtychange(request, product_id, qty_change):
 def delete_from_cart(request, cart_id):
     if request.user.is_authenticated : 
         product = Cart.objects.get(id=cart_id)
-        print(product)
         product.delete()
     return HttpResponseRedirect('/cart')
-
-
-
-
 
 
 
